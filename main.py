@@ -9,7 +9,7 @@ import xlrd
 file=st.sidebar.file_uploader("Upload you file", type=(['csv', 'txt', 'xls', 'xlsx']))
 try:
     if file:
-    df=pd.read_excel(file)
+        df=pd.read_excel(file)
     import datetime
     col1, col2=st.columns((2))
     df["Order Date"]=pd.to_datetime(df["Order Date"])
@@ -75,7 +75,7 @@ try:
             st.write(category_df.style.background_gradient(cmap="Blues"))
             csv=category_df.to_csv(index=False)
             st.download_button("Download Data", data=csv, file_name="Category.csv", mime="text/csv",
-                           help='Click here to download the data as a csv file')
+                               help='Click here to download the data as a csv file')
         
 
     with cl2:
@@ -84,7 +84,7 @@ try:
             st.write(region.style.background_gradient(cmap="Oranges"))
             csv=region.to_csv(index=False)
             st.download_button("Download Data", data=csv, file_name="Region.csv", mime="text/csv",
-                           help='Click here to download the data as a csv file')
+                               help='Click here to download the data as a csv file')
 
     filtered_df["month_year"]=filtered_df["Order Date"].dt.to_period("M")
     st.subheader("Time-series analysis")
@@ -136,7 +136,7 @@ try:
     st.plotly_chart(data1, use_container_width=True)
 
     with st.expander("View Data"):
-            st.write(filtered_df.iloc[:500, 1:20:2].style.background_gradient(cmap="Oranges"))
+        st.write(filtered_df.iloc[:500, 1:20:2].style.background_gradient(cmap="Oranges"))
     #Download data
     csv=df.to_csv(index=False)
     st.download_button("Download data", data=csv, file_name="Data.csv", mime="text/csv")
