@@ -141,4 +141,4 @@ try:
     csv=df.to_csv(index=False)
     st.download_button("Download data", data=csv, file_name="Data.csv", mime="text/csv")
 except:
-st.tilte ("Please Upload adidas sales data")
+    st.tilte ("Please Upload superstore sales data")
